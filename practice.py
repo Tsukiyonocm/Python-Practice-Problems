@@ -13,6 +13,9 @@
     # Question 12
     # Question 13
 
+# Level 1 Questions
+    # Question 14
+
 # =================================================================
 # Function Question 1:
 # =================================================================
@@ -233,3 +236,30 @@ def makes_twenty(x, y):
 
 # Found after watching course explaination: The if statement once again is redundent, if I just print the OR 
 # condtionals, it will print eithe true or false based on results.
+
+# =================================================================
+# Function Question 14: Level 1 Question
+# =================================================================
+
+# OLD MACDONALD: Write a function that capitalizes the first and fourth letters of a name
+
+# Example:
+#   old_macdonald("macdonald") ==> MacDonald
+
+# Note: macdonald.capitlize() ==> Macdonald
+
+def old_macdonald(name):
+    newList = list(name.capitalize())
+    newList[3] = newList[3].upper()
+    finalList = "".join(newList)
+    print(finalList)   
+
+# Test Cases: Uncomment in order to test things
+# old_macdonald("macdonald")
+
+# Notes:
+# Not sure this is the best solution, but it does work. I have to create two new strings using this method.
+# First you create a list where the first letter of the name is capitalized while turning it into a list.
+# Creating the list seperates each letter out so that it can be targeted easily individually. 
+# Next, you target the fourth letter (index 3) and you capitalize that letter. 
+# Lastly you .join that list into a string which is returned.
