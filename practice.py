@@ -166,7 +166,8 @@ def lesser_of_two_evens(a, b):
 # lesser_of_two_evens(2, 5)
 
 # Notes:
-# Embedded If/Else statments are used to compare the numbers and to tell if they are even or odd first, then which one is higher or smaller depending on where things land.
+# Embedded If/Else statments are used to compare the numbers and to tell if they are even or odd first, then which
+# one is higher or smaller depending on where things land.
 
 # Found after watching course explaination: The embedded IF statements can be rewritten using the min() and max()
 # functions to find the larger/smaller of two numbers. 
