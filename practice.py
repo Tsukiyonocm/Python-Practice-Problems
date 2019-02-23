@@ -1,4 +1,19 @@
 # =================================================================
+# Function Question Index:
+# =================================================================
+# Generally questions with notes are fully explained questions.
+
+# Jose Portilla Python Bootcamp
+# Args
+    # Question 9
+    # Question 10
+
+# WarmUp Questions
+    # Question 11
+    # Question 12
+    # Question 13
+
+# =================================================================
 # Function Question 1:
 # =================================================================
 
@@ -117,6 +132,87 @@ def question10(*args):
 
 
 # =================================================================
-# Function Question 11:
+# Function Question 11: WarmUp Questions
 # =================================================================
 
+# LESSER OF TWO EVENS: Write a function that returns the lesser of two given numbers if both numbers are even, but returns
+# the greater if one or both numbers are odd.
+
+# Example:
+#   lesser_of_two_evens(2, 4) ==> 2
+#   lesser_of_two_evens(2, 5) ==> 5
+
+def lesser_of_two_evens(a,b):
+    if a % 2 == 0 and b % 2 == 0:
+        if a < b:
+            print(a)
+        else:
+            print(b)
+    else:
+        if a > b:
+            print(a)
+        else:
+            print(b)
+
+# Test Cases: Uncomment in order to test things
+# lesser_of_two_evens(12, 6)
+# lesser_of_two_evens(2, 4)
+# lesser_of_two_evens(2, 5)
+
+# Notes:
+# Embedded If/Else statments are used to compare the numbers and to tell if they are even or odd first, then which one is higher or smaller
+# depending on where things land.
+
+
+# =================================================================
+# Function Question 12: WarmUp Question
+# =================================================================
+
+# ANIMAL CRACKERS: Write a function that takes a two word string and returns True if both words begin with the same
+# letter.
+
+# Example:
+#   animal_crackers("LevelHeader Llama") ==> True
+#   animal_crackers("Crazy Kangaroo") ==> False
+
+def animal_crackers(testStr):
+    splitString = testStr.split()
+    
+    if splitString[0][0] == splitString[1][0]:
+        print(True)
+    else:
+        print(False)
+
+# Test Cases: Uncomment in order to test things
+# animal_crackers("Crazy Kangaroo")
+# animal_crackers("LevelHeader Llama")
+
+# Notes:
+# splitString[0][0] selects the first word[0] and the first letter of that word[0].
+# .split() was used to seperate each word into their own seperate string for ease of selecting.
+
+
+# =================================================================
+# Function Question 13: WarmUp Question
+# =================================================================
+
+# MAKES TWENTY: Given two integers, return True if the sum of the intergers is 20 or if one of the integers is 20.
+# If not, return False.
+
+# Example:
+#   makes_twenty(20, 10) ==> True
+#   makes_twenty(12, 8) ==> True
+#   makes_twenty(2, 3) ==> True
+
+def makes_twenty(x, y):
+    if x == 20 or y == 20 or x + y == 20:
+        print("20")
+    else:
+        print("not 20")
+
+# Test Cases: Uncomment in order to test things
+# makes_twenty(20, 10)
+# makes_twenty(2, 3)
+
+# Notes:
+# Multiple or conditions look pretty messy. Is there a way to make them look nicer?
