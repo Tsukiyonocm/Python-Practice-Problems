@@ -142,17 +142,20 @@ def question10(*args):
 #   lesser_of_two_evens(2, 4) ==> 2
 #   lesser_of_two_evens(2, 5) ==> 5
 
-def lesser_of_two_evens(a,b):
+def lesser_of_two_evens(a, b):
     if a % 2 == 0 and b % 2 == 0:
-        if a < b:
-            print(a)
-        else:
-            print(b)
+        print(min(a, b))
+        # if a < b:
+        #     print(a)
+        # else:
+        #     print(b)
+        
     else:
-        if a > b:
-            print(a)
-        else:
-            print(b)
+        print(max(a, b))
+        # if a > b:
+        #     print(a)
+        # else:
+        #     print(b)
 
 # Test Cases: Uncomment in order to test things
 # lesser_of_two_evens(12, 6)
@@ -160,8 +163,10 @@ def lesser_of_two_evens(a,b):
 # lesser_of_two_evens(2, 5)
 
 # Notes:
-# Embedded If/Else statments are used to compare the numbers and to tell if they are even or odd first, then which one is higher or smaller
-# depending on where things land.
+# Embedded If/Else statments are used to compare the numbers and to tell if they are even or odd first, then which one is higher or smaller depending on where things land.
+
+# Found after watching course explaination: The embedded IF statements can be rewritten using the min() and max()
+# functions to find the larger/smaller of two numbers. 
 
 
 # =================================================================
@@ -176,20 +181,27 @@ def lesser_of_two_evens(a,b):
 #   animal_crackers("Crazy Kangaroo") ==> False
 
 def animal_crackers(testStr):
-    splitString = testStr.split()
+    splitString = testStr.lower().split()
     
-    if splitString[0][0] == splitString[1][0]:
-        print(True)
-    else:
-        print(False)
+    print(splitString[0][0] == splitString[1][0])
+    # if splitString[0][0] == splitString[1][0]:
+    #     print(True)
+    # else:
+    #     print(False)
 
 # Test Cases: Uncomment in order to test things
 # animal_crackers("Crazy Kangaroo")
 # animal_crackers("LevelHeader Llama")
+# animal_crackers("Curious cat")
 
 # Notes:
 # splitString[0][0] selects the first word[0] and the first letter of that word[0].
 # .split() was used to seperate each word into their own seperate string for ease of selecting.
+# .lower() is used to make all the letters the same case, just in case we are comparing capital to
+# lowercase letters.
+
+# Found after watching course explaination: The if statement is not needed at all. We can just compare them
+# and if its true, it will print true, if false then false.
 
 
 # =================================================================
@@ -205,14 +217,19 @@ def animal_crackers(testStr):
 #   makes_twenty(2, 3) ==> True
 
 def makes_twenty(x, y):
-    if x == 20 or y == 20 or x + y == 20:
-        print("20")
-    else:
-        print("not 20")
+   print(x == 20 or y == 20 or x + y == 20)
+    # if x == 20 or y == 20 or x + y == 20:
+    #     print(True)
+    # else:
+    #     print(False)
 
 # Test Cases: Uncomment in order to test things
 # makes_twenty(20, 10)
 # makes_twenty(2, 3)
+# makes_twenty(12, 8)
 
 # Notes:
 # Multiple or conditions look pretty messy. Is there a way to make them look nicer?
+
+# Found after watching course explaination: The if statement once again is redundent, if I just print the OR 
+# condtionals, it will print eithe true or false based on results.
