@@ -15,6 +15,12 @@
 
 # Level 1 Questions
     # Question 14
+    # Question 15
+    # Question 16
+
+# Level 2 Questions
+    # Question 17
+    # Question 18
 
 # =================================================================
 # Function Question 1:
@@ -238,6 +244,7 @@ def makes_twenty(x, y):
 # Found after watching course explaination: The if statement once again is redundent, if I just print the OR 
 # condtionals, it will print eithe true or false based on results.
 
+
 # =================================================================
 # Function Question 14: Level 1 Question
 # =================================================================
@@ -250,10 +257,14 @@ def makes_twenty(x, y):
 # Note: macdonald.capitlize() ==> Macdonald
 
 def old_macdonald(name):
-    newList = list(name.capitalize())
-    newList[3] = newList[3].upper()
-    finalList = "".join(newList)
-    print(finalList)   
+    first_half = name[:3]
+    second_half = name[3:]
+    print(first_half.capitalize() + second_half.capitalize())
+
+    # newList = list(name.capitalize())
+    # newList[3] = newList[3].upper()
+    # finalList = "".join(newList)
+    # print(finalList)   
 
 # Test Cases: Uncomment in order to test things
 # old_macdonald("macdonald")
@@ -264,3 +275,134 @@ def old_macdonald(name):
 # Creating the list seperates each letter out so that it can be targeted easily individually. 
 # Next, you target the fourth letter (index 3) and you capitalize that letter. 
 # Lastly you .join that list into a string which is returned.
+
+
+# Found after watching course explaination: I need to better understand Slice commands. Basically can be done 
+# with a few slices using either .capitalize() or . upper().
+
+# =================================================================
+# Function Question 15: Level 1 Question
+# =================================================================
+
+# MASTER YODA: Given a sentence, return a sentence with the words reversed.
+
+# Example:
+#   master_yoda("I am home") ==> "home am I"
+#   master_yoda("We are ready") ==> "ready are We"
+
+# Note: the .join() method may be useful here. The .join() method allows you to join together strings in a list
+# with some connector string. For example, some uses of the .join() method:
+
+# "--".join(["a", "b", "c"])
+# returns: a--b--c
+
+# This means if you had a list of words you wanted to turn back into a sentence, you could just join them with a 
+# single space string:
+
+# " ".join(["Hello", "World"])
+# returns: "Hello World"
+
+
+def master_yoda(text):
+    newList = text.split()
+    newList.reverse()
+    print(" ".join(newList))
+
+# Test Cases: Uncomment in order to test things
+# master_yoda("I am home")
+# master_yoda("We are ready")
+
+# Notes: Not sure why, but .reverse() appears to not be allowed inside of a print statment. I am unsure if its 
+# because it changes the static direction of the list or not. Otherwise this was a fairly straight forward 
+# question that I believe I figured out well.
+
+
+# =================================================================
+# Function Question 16: Level 1 Questions
+# =================================================================
+
+# ALMOST THERE: Given an integer n, return True if n is within 10 of either 100 or 200
+
+# Example:
+#   almost_there(90) ==> True
+#   almost_there(104) ==> True
+#   almost_there(150) ==> False
+#   almost_there(209) ==> True
+
+# Note: abs(num) returns the absolute of a number
+
+def almost_there(n):
+    
+    print((abs(n - 100) <= 10) or (abs(n - 200) <= 10))
+        
+
+# Test Cases: Uncomment in order to test things
+# almost_there(104)
+# almost_there(90)
+# almost_there(150)
+# almost_there(209)
+
+
+# =================================================================
+# Function Question 17: Level 2 Questions
+# =================================================================
+
+# FIND 33: Given a list of ints, return True if the array contains a 3 next to a 3 somewhere.
+
+# Example:
+    # has_33([1, 3, 3]) ==> True
+    # has_33([1, 3, 1, 3]) ==> False
+    # has_33([3, 1, 3]) ==> False
+
+def has_33(nums):
+    counter = 0
+
+    for num in nums:
+        if num == 3:
+            counter +=1
+            if counter == 2:
+                break
+        else:
+            counter = 0
+    
+    print(counter == 2)
+    
+# Notes: To start I setup a counter to track the number of 3's in a row. Looping through the set of nums I check
+# it versus 3 and if true I add 1 to the counter. Now if the number is not equal to 3, I reset counter to 0.
+# In order to check for two in a row, I have a second if statement which "break" out of the loop if the counter
+# ever reaches 2. 2 in the counter would mean that there is a "33" in the codes. I actually had to add a 4th test
+# case because I was getting the correct answer to all the three given, but, when I add numbers after the last set
+# of 3's it was giving me the wrong answer. I found out this way I was running the whole loop even after hitting
+# 2 on the counter and then resetting it to 0 again anyway.   
+
+
+# Test Cases: Uncomment in order to test things
+# has_33([1, 3, 3])
+# has_33([1, 3, 1, 3])
+# has_33([3, 1, 3])
+# has_33([3, 2, 1, 3, 3, 2, 0])
+
+
+# =================================================================
+# Function Question 18: Level 2 Questions
+# =================================================================
+
+# PAPER DOLL: Given a string, return a string where for every character in the original there are three characters.
+
+# Example:
+    # paper_doll("Hello") ==> "HHHeeellllllooo"
+    # paper_doll("Mississippi") ==> "MMMiiissssssiiippppppiii"
+
+def paper_doll(text):
+    finalText = ""
+
+    for letters in text:
+        finalText += letters * 3
+
+    print(finalText)
+
+# Test Cases: Uncomment in order to test things
+# paper_doll("Hello")
+# paper_doll("Mississippi")
+
+# Notes: Not sure this is the most elegant solution, but it does work.
