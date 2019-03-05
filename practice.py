@@ -2,6 +2,7 @@
 # Function Question Index:
 # =================================================================
 # Generally questions with notes are fully explained questions.
+# Run code in terminal with python practice.py
 
 # Jose Portilla Python Bootcamp
 # Args
@@ -21,6 +22,7 @@
 # Level 2 Questions
     # Question 17
     # Question 18
+    # Question 19
 
 # =================================================================
 # Function Question 1:
@@ -406,3 +408,64 @@ def paper_doll(text):
 # paper_doll("Mississippi")
 
 # Notes: Not sure this is the most elegant solution, but it does work.
+
+
+# =================================================================
+# Function Question 19: Level 2 Questions
+# =================================================================
+
+# BLACKJACK: Given three integers between 1 and 11, if their sum is less than or equal to 21,
+# return their sum. If their sum exceeds 21 and there's an eleven, reduce the total sum by 10.
+# Finally, if the sum (even after adjustment) exceeds 21, return "Bust".
+
+# Example
+    # blackjack(5, 6, 7) ==> 18
+    # blackjack(9, 9, 9) ==> "BUST"
+    # blackjack(9, 9, 11) ==> 19
+
+def blackjack(*args):
+    total = sum(args)
+    count = args.count(11)
+
+    
+    if total > 21 and count == 1:
+        if (total - 10) > 21:
+            print("Bust")
+        else:
+            print(total - 10)
+    elif total <= 21:
+        print(total)
+    else:
+        print("Bust")
+
+# Test Cases: Uncomment in order to test things
+# blackjack(5, 6, 7)
+# blackjack(9, 9, 9)
+# blackjack(9, 9, 11)
+# blackjack(10, 10, 11)
+
+# Notes: .count() returns the amount of times a search is within a list. 
+# In this case, we are checking for instances of 11, which will return at least
+# 1 if there is an 11 inside of the list.
+
+
+# =================================================================
+# Function Question 20: Level 2 Questions
+# =================================================================
+
+# SUMMER OF '69: Return the sum of the numbers in the array, except ignore
+# sections of numbers starting with a 6 and extending to the next 9.
+# (every 6 will be followed by at least one 9). Return 0 for no numbers.
+
+# Example
+    # summer_69([1, 3, 5]) ==> 9
+    # summer_69([4, 5, 6, 7, 8, 9]) ==> 9
+    # summer_69([2, 1, 6, 9, 11]) ==> 14
+
+def summer_69(arr):
+    print("Working")
+
+# Test Cases: Uncomment in order to test things
+summer_69([1, 3, 5])
+summer_69([4, 5, 6, 7, 8, 9])
+summer_69([2, 1, 6, 9, 11])
