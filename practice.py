@@ -1,3 +1,7 @@
+# Import requirements
+import math
+import string
+
 # =================================================================
 # Function Question Index:
 # =================================================================
@@ -5,6 +9,7 @@
 # Run code in terminal with python practice.py
 
 # Jose Portilla Python Bootcamp
+# Functions and Methods
 # Args
     # Question 9
     # Question 10
@@ -23,7 +28,19 @@
     # Question 17
     # Question 18
     # Question 19
+    # Question 20 - Spy Game
+# Challenging Questions
+    # Question 21
+    # Question 22 (incomplete)
 
+# Homework Methods/Functions
+    # Question 23 - Volume Sphere
+    # Question 24 - Inside Range
+    # Question 25 - Upper/Lower
+    # Question 26 - Unique List
+    # Question 27 - Multiply All
+    # Question 28 - Palindrome
+    # Question 29 - Pangram
 # =================================================================
 # Function Question 1:
 # =================================================================
@@ -368,6 +385,13 @@ def has_33(nums):
             counter = 0
     
     print(counter == 2)
+
+# Class Example:
+# def has_33(nums):
+#     for i in range(0, len(nums)-1):
+#         if nums[i] == 3 and nums[i+1] == 3:
+#             print(True)   
+#     return False
     
 # Notes: To start I setup a counter to track the number of 3's in a row. Looping through the set of nums I check
 # it versus 3 and if true I add 1 to the counter. Now if the number is not equal to 3, I reset counter to 0.
@@ -463,9 +487,224 @@ def blackjack(*args):
     # summer_69([2, 1, 6, 9, 11]) ==> 14
 
 def summer_69(arr):
-    print("Working")
+
+    # step 1: Does the list have a 6 and 9?
+    if 6 in arr:
+        slice6 = arr.index(6)
+        slice9 = arr.index(9) + 1
+        # Deletes numbers between index of 6 and index 0f 9 from list
+        # Returning a new list
+        del arr[slice6:(slice9)]
+        
+        print(sum(arr))
+    # If no, sum variables
+    else:
+        print(sum(arr))
+
+# Notes: arr.index() will allow me to find a particular number inside of the list.
+# This should allow me to then use those index numbers to create a slice to
+# remove the numbers in between if its inside of the list. 
+# The del keyword allows a user to delete values from any object in python. 
+# In this case, I used it to delete the values between the two indexs from my 
+# list.
 
 # Test Cases: Uncomment in order to test things
-summer_69([1, 3, 5])
-summer_69([4, 5, 6, 7, 8, 9])
-summer_69([2, 1, 6, 9, 11])
+# summer_69([1, 3, 5])
+# summer_69([4, 5, 6, 7, 8, 9])
+# summer_69([2, 1, 6, 9, 11])
+# summer_69([4, 8, 3, 6, 5, 1, 9, 7])
+
+
+# =================================================================
+# Function Question 21: Challenging Questions
+# =================================================================
+
+# SPY GAME: Write a function that takes in a list of integers and returns True if it contains 007 in order
+
+# Example:
+    # spy_game([1, 2, 4, 0, 0, 7, 5])
+    # spy_game([1, 0, 2, 4, 0, 5, 7])
+    # spy_game([1, 7, 2, 0, 4, 5, 0])
+
+def spy_game(nums):
+    for i in range(0, len(nums)-1):
+        if nums[i] == 0 and nums[i + 1] == 0 and nums[i + 2] == 7:
+            print(True)
+            break
+    print("Only False if no true prints")
+        
+
+# Test Cases: Uncomment in order to test things
+# spy_game([1, 2, 4, 0, 0, 7, 5])
+# spy_game([1, 0, 2, 4, 0, 5, 7])
+# spy_game([1, 7, 2, 0, 4, 5, 0])
+
+
+# =================================================================
+# Function Question 22: Challenging Questions
+# =================================================================
+
+# COUNT PRIMES: Write a function that returns the number of prime numbers that exist up to and including a given
+# number
+
+# Example:
+    # count_primes(100) ==> 25
+
+# By convention, 0 and 1 are not prime.
+def count_primes(num):
+    print("working")
+
+# Test Cases: Uncomment in order to test things
+# count_primes(10)
+
+
+# =================================================================
+# Function Question 23: Second Set Functions/Methods
+# =================================================================
+
+# Write a function that computes the volumn of a spher given the radius
+
+def vol(rad):
+    volume = (4/3)*math.pi*rad**3
+    print(volume)
+
+# Test Cases: Uncomment in order to test things
+# vol(2)
+
+# Notes: Importing of the math library is required to use the PI function.
+
+
+# =================================================================
+# Function Question 24: Second Set Functions/Methods
+# =================================================================
+
+# Write a function that checks whether a number is in a given range(inclusive of high and low)
+# Example:
+    # ran_check(5, 2, 7) ==> 5 is in the range between 2 and 7
+
+def ran_check(num, low, high):
+    newRange = range(low, high + 1)
+    if num in newRange:
+        print(f"{num} is in range between {low} and {high}")
+    else:
+        print(f"{num} is not in the range of {low} and {high}")
+
+# If you only wanted to return a boolean
+
+def ran_bool(num, low, high):
+    newRange = range(low, high + 1)
+    if num in newRange:
+        print(True)
+    else:
+        print(False)
+
+# Test Cases: Uncomment in order to test things
+# ran_check(5, 2, 7)
+# ran_check(10, 1, 9)
+# ran_bool(3, 1, 10)
+# ran_bool(10, 1, 9)
+
+# =================================================================
+# Function Question 25: Second Set Functions/Methods
+# =================================================================
+
+# Write a function that accepts a string and calculates the number of uppercase and lowercase letters.
+
+# Example:
+    # Sample String: "Hello Mr. Rogers, how are you this fine Tuesday?"
+    # No. Uppercase characters: 4
+    # No. Lowercase characters: 33
+
+def up_low(s):
+    upperCount = 0
+    lowerCount = 0
+
+    for i in s:
+        if i.isupper() == True:
+            upperCount += 1
+        elif i.islower() == True:
+            lowerCount += 1
+    
+    print(f"No. of Uppercase Characters: {upperCount}")
+    print(f"No. of Lowercase characters: {lowerCount}")
+
+# Test Cases: Uncomment in order to test things
+s = "Hello Mr. Rogers, how are you this fine Tuesday?"
+# up_low(s)
+
+
+# =================================================================
+# Function Question 26: Second Set Functions/Methods
+# =================================================================
+
+# Write a python function that takes a list and returns a new list with unique elements of the first list
+
+# Example:
+    # Sample List: [1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5, 5]
+    # Unique List: [1, 2, 3, 4, 5]
+
+def unique_list(lst):
+    uniqueSet = set(lst)
+    print(uniqueSet)
+
+# Test Cases: Uncomment in order to test things
+# unique_list([1, 1, 1, 1, 2, 3, 3, 3, 4, 4, 5, 5])
+
+# Notes: Sets take in a list and returns a unique list of the variables. 
+
+
+# =================================================================
+# Function Question 27: Second Set Functions/Methods
+# =================================================================
+
+# Write a Python function to multiply all the numbers in a list
+# Example:
+    # Sample List: [1, 2, 3, -4] ==> -24
+
+def multiply(nums):
+    result = 0
+    for i in nums:
+        if result == 0:
+            result = i
+        else:
+            result *= i
+    print(result)
+
+# Test Cases: Uncomment in order to test things
+# multiply([1, 2, 3, -4])
+
+
+# =================================================================
+# Function Question 28: Second Set Functions/Methods
+# =================================================================
+
+# Write a Python function that checks whether a passed in string is a palindrome or not.
+
+# Note: A palindrome is a word, phrase, or sequence that reads the same backwards as forwards.
+# Example:
+    # madam
+    # nurses run 
+    # abby
+    # 1221
+
+def palindrome(s):
+    reverseWord = s[::-1]
+    print(reverseWord == s)
+
+# Test Cases: Uncomment in order to test things
+# palindrome("helleh")
+# palindrome("cheese")
+
+
+# =================================================================
+# Function Question 29: Second Set Functions/Methods
+# =================================================================
+
+# Write a python function to check whether a string is a pangram or not.
+
+# Note: Pangrams are words or sentences container every letter of the alphabet at least once.
+# Example: "The quick brown fox jumps over the lazy dog"
+# Hint: Look at the string module
+
+def isPangram(str1, alphabet=string.ascii_lowercase):
+    print("working")

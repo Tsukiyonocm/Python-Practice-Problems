@@ -1,15 +1,36 @@
-# Python-Practice-Problems
-
-Reason for File: 
-The purpose is largly to just store information about Python as I am learning it as well as to store the practice problems I do
-and showcase the ones I complete. I will likely create a index of the questions as well in the future in order to practice things 
-again. Right now the questions are all from Jose Portillas Python Bootcamp, but, I will do Codewars problems as I get better
-with the syntax and will probably start putting some of those here as well. Quite possibly even Edabit as I found those questions to 
-be a bit easier back when learning JavaScript.
-
-Useful Links:
-VScode Snippet Generator: https://snippet-generator.app/
+Python Learning
 
 
-Things to do for README: 
-1. Figure out how to style this again. I always forget the correct coding needed for styling markdown files.
+    .split() Function
+The .split() function will take an argument and will break apart a string based on teh context of the argument. For instance:
+
+            string = "This is a string"
+            string.split()
+            Output = ["This", "is", "a", "string"]
+
+The output of the above string using a blank argument seperates at the first whitespace of the text. 
+
+
+    Slice
+Using the slice functionality is as easy as telling python how far you wish to slice at any given moment.
+            string = "Bacon"
+            string[0]
+            Output = ["B"]
+
+            string[1]
+            Output = ["a"]
+
+            string[0:2]
+            Output = ["Ba"]
+The first number is how many spaces you wish to start with. 0 meaning starting at first letter in the case of a string, 1 being second letter and so on. The :integer then means how many spaces to move out from there. It must be said that you are starting from the beginning of the letters. So things start at left of "B" and continue so moving 2 spaces gives us "Ba" in last example.
+
+
+    len()
+This works similar to Javascript in where its a function that finds out the length of the string or object that is connected to it. Unlike javascript though, this is not tacked onto the end of the variable name. In python the syntax is as follows:
+            varName = "string"
+            len(varName)
+            Output = 6
+
+<!-- TODO -->
+<!-- Create a index at the top of all the things I am typing in here for quicker use cases. -->
+<!-- Figure out how to make the markup look better. Maybe move this over to html/css in the future -->
